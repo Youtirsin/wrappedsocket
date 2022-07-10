@@ -12,7 +12,7 @@ int main() {
 
   auto client = server.accept_();
 
-  client->send("hello wolrd");
+  client->send("hello world");
 
   client->close_();
 
