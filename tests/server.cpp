@@ -4,6 +4,7 @@
 
 // test server-side socket of wrappedsocket
 int main() {
+
   Socket server;
 
   server.bind_(10010);

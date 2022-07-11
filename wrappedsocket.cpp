@@ -52,7 +52,9 @@ std::shared_ptr<Socket::Client> Socket::accept_() {
   int cfd = accept(fd, (struct sockaddr *)&cliaddr, &clilen);
   assert(cfd != -1 && "error accepting client.\n");
 
-  auto res = std::make_shared<Client>(cfd);
+  auto res = std::make_shared<Client>(
+      cfd, inet_ntop(AF_INET, &cliaddr.sin_addr.s_addr, ip, sizeof(ip)),
+      ntohs(cliaddr.sin_port));
   return res;
 }
 
